@@ -14,8 +14,12 @@ class CalculateViewController: UIViewController {
     @IBOutlet weak var tipText: UITextField!
     @IBOutlet weak var totalLabel: UILabel!
     
+    @IBOutlet weak var TipView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        addGif()
+        
 
         // Do any additional setup after loading the view.
     }
@@ -31,12 +35,28 @@ class CalculateViewController: UIViewController {
             let total = price * (100 + tip)/100
             totalLabel.text = String(format: "%.2f",total)
 
-            
-            
         }
-            
+        
+        view.endEditing(true)
+
+    }
+    
+    func addGif(){
+        
+        let imageView = UIImageView(
+            frame: CGRect(x: 0, y: 0, width: 200, height: 200)
+        )
+        
+        imageView.image = UIImage.animatedImageNamed("tip-coin-", duration: 2)
+        imageView.contentMode = .scaleAspectFit
+
+        TipView.addSubview(imageView)
+        
         
     }
+    
+    
+
     /*
     // MARK: - Navigation
 
